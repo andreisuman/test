@@ -80,6 +80,9 @@
         font-weight: bold;
         border-radius: 5px;
     }
+    .bg-red {
+        background-color: red !important;
+    }
 </style>
 </head>
 <body>
@@ -105,31 +108,31 @@
     <table id="calculator">
         <tr>
             <td colspan="3"><input type="text" id="result"></td>
-            <td><input type="button" value="c" onclick="clearInput()"></td>
+            <td><input type="button" value="c" onclick="clearInput()" onmouseover="colorButton(event)" onmouseout="unclolorButton(event)"></td>
         </tr>
         <tr>
-            <td><input type="button" value="1" onclick="dis('1')" onkeydown="myfunction(event)"></td>
-            <td><input type="button" value="2" onclick="dis('2')" onkeydown="myfunction(event)"></td>
-            <td><input type="button" value="3" onclick="dis('3')" onkeydown="myfunction(event)"></td>
-            <td><input type="button" value="/" onclick="dis('/')" onkeydown="myfunction(event)"></td>
+            <td><input type="button" value="1" onclick="dis('1')" onkeydown="myfunction(event)" onmouseover="colorButton(event)" onmouseout="unclolorButton(event)"></td>
+            <td><input type="button" value="2" onclick="dis('2')" onkeydown="myfunction(event)" onmouseover="colorButton(event)" onmouseout="unclolorButton(event)"></td>
+            <td><input type="button" value="3" onclick="dis('3')" onkeydown="myfunction(event)" onmouseover="colorButton(event)" onmouseout="unclolorButton(event)" ></td>
+            <td><input type="button" value="/" onclick="dis('/')" onkeydown="myfunction(event)" onmouseover="colorButton(event)" onmouseout="unclolorButton(event)"></td>
         </tr>
         <tr>
-            <td><input type="button" value="4" onclick="dis('4')" onkeydown="myfunction(event)"></td>
-            <td><input type="button" value="5" onclick="dis('5')" onkeydown="myfunction(event)"></td>
-            <td><input type="button" value="6" onclick="dis('6')" onkeydown="myfunction(event)"></td>
-            <td><input type="button" value="*" onclick="dis('*')" onkeydown="myfunction(event)"></td>
+            <td><input type="button" value="4" onclick="dis('4')" onkeydown="myfunction(event)" onmouseover="colorButton(event)" onmouseout="unclolorButton(event)"></td>
+            <td><input type="button" value="5" onclick="dis('5')" onkeydown="myfunction(event)" onmouseover="colorButton(event)" onmouseout="unclolorButton(event)"></td>
+            <td><input type="button" value="6" onclick="dis('6')" onkeydown="myfunction(event)" onmouseover="colorButton(event)" onmouseout="unclolorButton(event)"></td>
+            <td><input type="button" value="*" onclick="dis('*')" onkeydown="myfunction(event)" onmouseover="colorButton(event)" onmouseout="unclolorButton(event)"></td>
         </tr>
         <tr>
-            <td><input type="button" value="7" onclick="dis('7')" onkeydown="myfunction(event)"></td>
-            <td><input type="button" value="8" onclick="dis('8')" onkeydown="myfunction(event)"></td>
-            <td><input type="button" value="9" onclick="dis('9')" onkeydown="myfunction(event)"></td>
-            <td><input type="button" value="-" onclick="dis('-')" onkeydown="myfunction(event)"></td>
+            <td><input type="button" value="7" onclick="dis('7')" onkeydown="myfunction(event)" onmouseover="colorButton(event)" onmouseout="unclolorButton(event)"></td>
+            <td><input type="button" value="8" onclick="dis('8')" onkeydown="myfunction(event)" onmouseover="colorButton(event)" onmouseout="unclolorButton(event)"></td>
+            <td><input type="button" value="9" onclick="dis('9')" onkeydown="myfunction(event)" onmouseover="colorButton(event)" onmouseout="unclolorButton(event)"></td>
+            <td><input type="button" value="-" onclick="dis('-')" onkeydown="myfunction(event)" onmouseover="colorButton(event)" onmouseout="unclolorButton(event)"></td>
         </tr>
         <tr>
-            <td><input type="button" value="0" onclick="dis('0')" onkeydown="myfunction(event)"></td>
-            <td><input type="button" value="." onclick="dis('.')" onkeydown="myfunction(event)"></td>
-            <td><input type="button" value="=" onclick="solve()"></td>
-            <td><input type="button" value="+" onclick="dis('+')" onkeydown="myfunction(event)"></td>
+            <td><input type="button" value="0" onclick="dis('0')" onkeydown="myfunction(event)" onmouseover="colorButton(event)" onmouseout="unclolorButton(event)"></td>
+            <td><input type="button" value="." onclick="dis('.')" onkeydown="myfunction(event)" onmouseover="colorButton(event)" onmouseout="unclolorButton(event)"></td>
+            <td><input type="button" value="=" onclick="solve()" onmouseover="colorButton(event)" onmouseout="unclolorButton(event)"></td>
+            <td><input type="button" value="+" onclick="dis('+')" onkeydown="myfunction(event)" onmouseover="colorButton(event)" onmouseout="unclolorButton(event)"></td>
         </tr>
     </table>
 
@@ -181,6 +184,16 @@
     function clearInput() {
         console.log("call")
         document.getElementById("result"). value = ""
+    }
+
+    function colorButton(event) {
+            console.log(event.target.classList);
+            event.target.classList.add('bg-red');
+            //  event.target.classList.add('bg-yellow');
+    }
+
+    function unclolorButton(event) {
+            event.target.classList.remove('bg-red');
     }
 
 
