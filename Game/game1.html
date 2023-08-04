@@ -1,84 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Andrei's Interactive Games</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-    * {
-        box-sizing: border-box;
-    }
-    body {
-        background-color: #3895D3 ;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    } 
-    header {
-        background-color: #072f5f;
-        padding: 30px;
-        text-align: center;
-        font-size: 60px;
-        color: white;
-        }
-    nav {
-        float: left;
-        width: 30%;
-        height: 300px;
-        background-color: #57aff7;
-        padding: 20px;
-        color: white;
-        font-size: 20px;
-        }
-    nav ul {
-        list-style-type: none;
-        padding: 0;
-    }
-    article {
-        float: left;
-        padding: 20px;
-        width: 70%;
-        background-color: #1261a0;
-        height: 300px;
-        font-size: 20px;
-        color: white;
-    }
-    footer {
-        background-color: #072f5f;
-        padding: 30px;
-        text-align: center;
-        color: white;
-        
-    }
-
-        
-</style>
+	<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-
-<header>
-    <h2>Andrei's Interactive Games</h2>
-</header>
-<section>
-    <nav>
-        <ul>
-            <li><a href="game1.html">Game 1</a></li>
-            <li><a href="game2.html">Game 2</a></li>
-            <li><a href="game3.html">Game 3</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="lab1.html">Lab 1</a></li>
-            <li><a href="lab2.html">Lab 2</a></li>
-        </ul>
-    </nav>
-    <article>
-        <h1>Game 1</h1>
-    </article>
-    <footer>
-        <p>Footer</p>
-    </footer>
-</section>
-
-
-
-
+	<div class="background"></div>
+	<img class="bird" src="bird.png" alt="bird-img">
+	<div class="message">
+		Press Enter To Start Game
+	</div>
+	<div class="score">
+		<span class="score_title"></span>
+		<span class="score_val"></span>
+	</div>
+	<script src="gfg.js"></script>
 </body>
+
 </html>
