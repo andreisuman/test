@@ -15,9 +15,6 @@ let move_speed = 0;
 let original_speed = 5;
 
 
-
-
-
 // Background scrolling speed
 
 let gravity = 0.3;
@@ -40,6 +37,10 @@ let message = document.querySelector('.message');
 
 let score_title = document.querySelector('.score_title');
 
+let life_val = document.querySelector('.life_val');
+
+let life_title = document.querySelector('.life_title');
+
 // Setting initial game state to start
 
 let game_state = 'Start';
@@ -58,6 +59,8 @@ document.addEventListener('keydown', (e) => {
         message.innerHTML = '';
         score_title.innerHTML = 'Score : ';
         score_val.innerHTML = '0';
+        life_title.innerHTML = 'Life : ';
+        life_val.innerHTML = '1';
         play();
     }
 });
@@ -91,15 +94,30 @@ function play() {
                     bird_props.left + bird_props.width > pipe_sprite_props.left &&
                     bird_props.top < pipe_sprite_props.top + pipe_sprite_props.height &&
                     bird_props.top + bird_props.height > pipe_sprite_props.top
-                ) {
+                ) { 
+                    console.log(life_val.innerHTML)
 
                     // Change game state and end the game
                     // if collision occurs
-                    game_state = 'End';
-                    message.innerHTML = 'Press Enter To Restart'
-                    message.style.left = '28vw';
-                    die.play();
-                    return;
+                    life_val.innerHTML = parseInt(life_val.innerHTML) - 1;
+                    console.log(life_val.innerHTML)
+                        //alert(life_val.innerHTML);
+
+                   if (life_val.innerHTML == 0) {
+                        game_state = 'End';
+                        message.innerHTML = 'Press Enter To Restart'
+                        message.style.left = '28vw';
+                        die.play();
+                        
+                        return;
+                    } else {
+                        element.remove(); 
+                    }
+                    
+
+                   
+
+                 
                 } else {
 
                     // check if speed need to be increase
@@ -107,12 +125,11 @@ function play() {
                     //@todo write your code here
                     if (score_val.innerHTML == 0) {
                         move_speed = original_speed;
-                        console.log('if', score_val.innerHTML, move_speed);
                     } else {
                         move_speed = original_speed + Math.floor(score_val.innerHTML/ 3);
-                        console.log('else', score_val.innerHTML, move_speed);
                     }
-console.log(move_speed)
+                    // starting the game we give a life
+                   
                     // Increase the score if player
                     // has the successfully dodged the
                     if (
@@ -121,7 +138,12 @@ console.log(move_speed)
                         element.increase_score == '1'
                     ) {
                         score_val.innerHTML = +score_val.innerHTML + 1;
-                        //scor.load();
+
+                        if ((score_val.innerHTML % 10) == 0) {
+                            life_val.innerHTML = +life_val.innerHTML + 1;
+                        }
+
+                        scor.load();
                         scor.play();
                     }
                     element.style.left = pipe_sprite_props.left - move_speed + 'px';
@@ -140,10 +162,9 @@ console.log(move_speed)
         }
         bird_dy = bird_dy + gravity;
         document.addEventListener('keydown', (e) => {
-            console.log(e.key)
             if (e.key == 'ArrowUp' || e.key == ' ' || e.key == 'w') {
                 bird_dy = -7.6;
-                //fly.load();
+                fly.load();
                 fly.play();
 
 
