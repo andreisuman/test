@@ -2,8 +2,8 @@ let fly = new Audio()
 let scor = new Audio()
 let die = new Audio();
 die.src = "sfx_die.mp3";
-//die.addEventListener('canplaythrough', function () {
-//}, false);
+die.addEventListener('canplaythrough', function () {
+}, false);
 
 fly.src = "fly.mp3";
 scor.src = "score.mp3";
@@ -143,7 +143,7 @@ function play() {
                             life_val.innerHTML = +life_val.innerHTML + 1;
                         }
 
-                        
+                        scor.load();
                         scor.play();
                     }
                     element.style.left = pipe_sprite_props.left - move_speed + 'px';
@@ -164,13 +164,11 @@ function play() {
         document.addEventListener('keydown', (e) => {
             if (e.key == 'ArrowUp' || e.key == ' ' || e.key == 'w') {
                 bird_dy = -7.6;
-              
+                fly.load();
                 fly.play();
-                
 
 
             }
-          
         });
 
         // Collision detection with bird and
