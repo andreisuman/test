@@ -4,8 +4,7 @@
 <title>Andrei's Interactive Games</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="stylesnake.css">
-<script src="game2.js"></script>
+
 <style>
     * {
         box-sizing: border-box;
@@ -48,6 +47,7 @@
         padding: 30px;
         text-align: center;
         color: white;
+        height: 100px;
         
     }
 
@@ -73,15 +73,21 @@
     </nav>
     <article>
         <h1>Snake Game</h1>
-        <div class="score">
+        <div id="gameContainer">
+            <canvas id="gameBoard" width="500" height="500"></canvas>
+            <div id="scoreText">0</div>
+            <button id="resetBtn">Reset</button>
+        </div>
+        <script src="game2.js"></script>
+        <link rel="stylesheet" href="style.css">
 
-      <canvas id="board" width="500" height="500"></canvas>
+      
 
     </article>
 
 </section>
 <footer>
-    <p>Footer</p>
+   
 </footer>
 
 
